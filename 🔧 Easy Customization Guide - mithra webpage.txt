@@ -1,0 +1,115 @@
+🔧 Easy Customization Guide
+1. Contact Details ChangesMithra R - Enhanced Media Influencer PortfolioInteractive artifact ∙ Version 3 Let me show you exactly what to change:
+📝 Step-by-Step Customization
+Contact Details to Update:
+
+Phone Numbers - Find and replace:
+html<!-- Current: -->
+<a href="tel:+918056350268">+91-8056350268</a>
+
+<!-- Change to your number: -->
+<a href="tel:+91XXXXXXXXXX">+91-XXXXXXXXXX</a>
+
+Email Address - Find and replace:
+html<!-- Current: -->
+<a href="mailto:rjmithra0294@gmail.com">rjmithra0294@gmail.com</a>
+
+<!-- Change to your email: -->
+<a href="mailto:youremail@gmail.com">youremail@gmail.com</a>
+
+Social Media Links - Update these:
+html<!-- Instagram: -->
+<a href="https://instagram.com/your_username">
+
+<!-- YouTube: -->
+<a href="https://youtube.com/c/YourChannel">
+
+
+📸 How to Add Pictures:
+Option 1: Using Image Hosting Services (Recommended)
+
+Upload photos to Google Drive, Dropbox, or imgur
+Get the direct image URL
+Replace the placeholder URLs:
+
+html<!-- Find this line for main profile photo: -->
+<img src="data:image/svg+xml,..." alt="Profile">
+
+<!-- Replace with: -->
+<img src="https://your-image-url.com/photo.jpg" alt="Mithra R - Professional Portrait">
+Option 2: Base64 Encoding (For small images)
+
+Use online tools like base64-image.de
+Upload your image and copy the base64 code
+Replace the src with: data:image/jpeg;base64,YOUR_BASE64_CODE
+
+🎵 Adding Voice Samples & Audio:
+For Voice-Over Samples:
+html<!-- Add this inside portfolio items: -->
+<audio controls class="w-full mt-4">
+    <source src="https://your-audio-url.com/sample.mp3" type="audio/mpeg">
+    <source src="https://your-audio-url.com/sample.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+</audio>
+For Click-to-Play Buttons:
+html<button onclick="playAudio('sample1')" class="btn-primary">
+    <i class="fas fa-play mr-2"></i>Listen Now
+</button>
+
+<audio id="sample1" preload="none">
+    <source src="https://your-audio-url.com/voice-sample.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playAudio(audioId) {
+    const audio = document.getElementById(audioId);
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+}
+</script>
+🎬 Adding Video Content:
+html<!-- For portfolio video items: -->
+<video controls class="w-full h-full object-cover rounded-lg">
+    <source src="https://your-video-url.com/showreel.mp4" type="video/mp4">
+    <source src="https://your-video-url.com/showreel.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
+📁 Best File Hosting Options:
+
+Google Drive (Free, reliable)
+
+Upload → Right-click → Get link → Change to "Anyone with link"
+Modify URL format for direct access
+
+
+YouTube (For videos)
+
+Upload videos → Use embed code
+
+
+SoundCloud (For audio)
+
+Upload audio → Use embed player
+
+
+Cloudinary (Professional, free tier)
+
+Great for automatic optimization
+
+
+
+🛠️ Quick Customization Checklist:
+
+ Replace phone number (2 locations)
+ Replace email address (2 locations)
+ Update social media links (3 platforms)
+ Add main profile photo
+ Add portfolio images (6 items)
+ Upload voice samples
+ Add video content
+ Update location details
+ Customize service descriptions
+ Add testimonials with real names

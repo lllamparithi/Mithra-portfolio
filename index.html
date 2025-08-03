@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mithra R | Voice-Over Artist & Media Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --rose-light: #fdf2f8;
+            --rose-medium: #f9a8d4;
+            --rose-deep: #ec4899;
+            --purple-light: #f3e8ff;
+            --purple-medium: #c084fc;
+            --purple-deep: #9333ea;
+            --mauve-light: #f5f3ff;
+            --mauve-medium: #d8b4fe;
+            --mauve-deep: #8b5cf6;
+            --gradient-primary: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 25%, #f5f3ff 50%, #ede9fe 75%, #ddd6fe 100%);
+            --gradient-accent: linear-gradient(135deg, #ec4899, #9333ea);
+            --gradient-soft: linear-gradient(135deg, #fce7f3, #e9d5ff);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gradient-primary);
+            color: #4c1d95;
+            line-height: 1.6;
+        }
+
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23fdf2f8" stop-opacity="0.8"/><stop offset="100%" stop-color="%23f3e8ff" stop-opacity="0.4"/></radialGradient></defs><rect width="1000" height="1000" fill="url(%23a)"/><circle cx="200" cy="200" r="100" fill="%23f9a8d4" opacity="0.1"/><circle cx="800" cy="300" r="150" fill="%23c084fc" opacity="0.1"/><circle cx="300" cy="800" r="120" fill="%23d8b4fe" opacity="0.1"/></svg>');
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .hero-bg {
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(236, 72, 153, 0.2);
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(253, 242, 248, 0.8));
+            border: 1px solid rgba(236, 72, 153, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .gradient-text {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-primary {
+            background: var(--gradient-accent);
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(236, 72, 153, 0.4);
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            background: var(--gradient-soft);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.8), rgba(147, 51, 234, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ec4899;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: var(--gradient-accent);
+            width: 100px;
+            margin: 2rem auto;
+            border-radius: 2px;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(253, 242, 248, 0.7));
+            border: 1px solid rgba(236, 72, 153, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(236, 72, 153, 0.2);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: serif;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem !important;
+            }
+            .service-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <div class="background-overlay"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect p-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">Mithra R</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-purple-800 hover:text-pink-600 font-medium">Home</a>
+                <a href="#about" class="nav-link text-purple-800 hover:text-pink-600 font-medium">About</a>
+                <a href="#services" class="nav-link text-purple-800 hover:text-pink-600 font-medium">Services</a>
+                <a href="#portfolio" class="nav-link text-purple-800 hover:text-pink-600 font-medium">Portfolio</a>
+                <a href="#contact" class="nav-link text-purple-800 hover:text-pink-600 font-medium">Contact</a>
+            </div>
+            <button class="md:hidden text-purple-800">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative pt-20 px-4">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="text-center lg:text-left order-2 lg:order-1">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 gradient-text leading-tight">
+                    Mithra R
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-light text-purple-700 mb-4">
+                    Voice-Over Artist & Media Professional
+                </h2>
+                <p class="text-lg text-purple-600 mb-8 leading-relaxed max-w-lg">
+                    Crafting compelling narratives with a voice that captivates. Your brand's next voice is here to create magic that converts.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#contact" class="btn-primary inline-flex items-center justify-center">
+                        Let's Collaborate <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#portfolio" class="px-8 py-4 border-2 border-pink-500 text-pink-600 font-semibold rounded-full hover:bg-pink-50 transition duration-300 text-center">
+                        View My Work
+                    </a>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 flex justify-center">
+                <div class="relative">
+                    <div class="w-80 h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320'><rect width='320' height='320' fill='%23f9a8d4'/><circle cx='160' cy='160' r='120' fill='%23ec4899' opacity='0.3'/><text x='160' y='170' text-anchor='middle' font-size='18' fill='%23fff'>Your Photo Here</text></svg>" 
+                             alt="Mithra R - Professional Portrait" 
+                             class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xl pulse-animation">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 glass-effect">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="card-hover p-6 rounded-xl">
+                    <div class="stats-counter">5+</div>
+                    <p class="text-purple-700 font-semibold mt-2">Years Experience</p>
+                </div>
+                <div class="card-hover p-6 rounded-xl">
+                    <div class="stats-counter">500+</div>
+                    <p class="text-purple-700 font-semibold mt-2">Projects Completed</p>
+                </div>
+                <div class="card-hover p-6 rounded-xl">
+                    <div class="stats-counter">100+</div>
+                    <p class="text-purple-700 font-semibold mt-2">Happy Clients</p>
+                </div>
+                <div class="card-hover p-6 rounded-xl">
+                    <div class="stats-counter">50+</div>
+                    <p class="text-purple-700 font-semibold mt-2">Shows Hosted</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">About Me</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-purple-600 max-w-3xl mx-auto">
+                    Meet the voice behind thousands of captivating stories and the energy that lights up every event.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="glass-effect p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-purple-800 mb-6">Hello, I'm Mithra.</h3>
+                    <p class="text-purple-700 leading-relaxed mb-4">
+                        As a well-experienced media professional, I bring a wealth of expertise from both Print and Broadcast Media. For years, I had the honor of being known as <strong>"Salem's Periya Papa"</strong> while hosting multiple shows at Suryan FM 93.9, where I connected with thousands of listeners and honed my craft as a storyteller and entertainer.
+                    </p>
+                    <p class="text-purple-700 leading-relaxed mb-4">
+                        I am a JCI certified professional Public Speaker, a skilled Event Organizer, a soft skills trainer, and a passionate Motivational Speaker. My voice is not just a tool; it's a vehicle for bringing your brand's message to life.
+                    </p>
+                    <p class="text-purple-700 leading-relaxed">
+                        With an MBA in HR & Marketing, I understand the strategic side of communication, ensuring every project is not only creative but also effective. I'm dedicated to delivering excellence and creating content that truly resonates.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="service-card p-6 rounded-xl text-center card-hover">
+                        <i class="fas fa-trophy text-3xl text-pink-500 mb-4"></i>
+                        <h4 class="font-semibold text-purple-800">Award Winner</h4>
+                        <p class="text-sm text-purple-600 mt-2">Recognized excellence in media</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl text-center card-hover">
+                        <i class="fas fa-graduation-cap text-3xl text-pink-500 mb-4"></i>
+                        <h4 class="font-semibold text-purple-800">MBA Qualified</h4>
+                        <p class="text-sm text-purple-600 mt-2">HR & Marketing expertise</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl text-center card-hover">
+                        <i class="fas fa-certificate text-3xl text-pink-500 mb-4"></i>
+                        <h4 class="font-semibold text-purple-800">JCI Certified</h4>
+                        <p class="text-sm text-purple-600 mt-2">Professional speaker</p>
+                    </div>
+                    <div class="service-card p-6 rounded-xl text-center card-hover">
+                        <i class="fas fa-radio text-3xl text-pink-500 mb-4"></i>
+                        <h4 class="font-semibold text-purple-800">Radio Expert</h4>
+                        <p class="text-sm text-purple-600 mt-2">Suryan FM veteran</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section with 4-Quadrant Design -->
+    <section id="services" class="py-20 px-4 glass-effect">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">My Services</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-purple-600 max-w-3xl mx-auto">
+                    Comprehensive media solutions designed to elevate your brand and captivate your audience.
+                </p>
+            </div>
+            
+            <div class="service-grid grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card p-8 rounded-2xl card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-purple-800 mb-3">Voice-Over & Dubbing</h3>
+                            <p class="text-purple-600 mb-4">Professional voice-overs and dubbing for commercials, documentaries, e-learning, and more.</p>
+                            <ul class="text-sm text-purple-500 space-y-1">
+                                <li>• Commercial advertisements</li>
+                                <li>• Documentary narration</li>
+                                <li>• E-learning modules</li>
+                                <li>• Character dubbing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card p-8 rounded-2xl card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-purple-800 mb-3">MC & Event Hosting</h3>
+                            <p class="text-purple-600 mb-4">Master of Ceremonies and event hosting to energize and smoothly guide any gathering.</p>
+                            <ul class="text-sm text-purple-500 space-y-1">
+                                <li>• Corporate events</li>
+                                <li>• Wedding ceremonies</li>
+                                <li>• Product launches</li>
+                                <li>• Cultural programs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card p-8 rounded-2xl card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-r from-pink-600 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-purple-800 mb-3">Content Creation</h3>
+                            <p class="text-purple-600 mb-4">Engaging video content for brands, social media reels, and promotional needs.</p>
+                            <ul class="text-sm text-purple-500 space-y-1">
+                                <li>• Social media reels</li>
+                                <li>• Brand promotional videos</li>
+                                <li>• Script writing</li>
+                                <li>• Creative campaigns</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card p-8 rounded-2xl card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-purple-800 mb-3">Show Hosting & VJ</h3>
+                            <p class="text-purple-600 mb-4">Dynamic VJ and show hosting services for radio, television, and online platforms.</p>
+                            <ul class="text-sm text-purple-500 space-y-1">
+                                <li>• Radio show hosting</li>
+                                <li>• TV program anchoring</li>
+                                <li>• Live streaming</li>
+                                <li>• Online shows</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">My Work Portfolio</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-purple-600 max-w-3xl mx-auto">
+                    Discover a glimpse of my diverse work, from captivating voice-overs to memorable hosting moments.
+                </p>
+            </div>
+            
+            <div class="portfolio-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item h-80 card-hover">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23f9a8d4'/><circle cx='200' cy='150' r='80' fill='%23ec4899' opacity='0.5'/><text x='200' y='160' text-anchor='middle' font-size='16' fill='%23fff'>Voice-Over Sample</text></svg>" 
+                         alt="Voice-Over Work" class="w-full h-full object-cover">
+                    <div class="portfolio-overlay">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-white mb-4">Voice-Over Samples</h3>
+                            <button class="btn-primary">
+                                <i class="fas fa-play mr-2"></i>Listen Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item h-80 card-hover">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23c084fc'/><circle cx='200' cy='150' r='80' fill='%239333ea' opacity='0.5'/><text x='200' y='160' text-anchor='middle' font-size='16' fill='%23fff'>Event Hosting</text></svg>" 
+                         alt="Event Hosting" class="w-full h-full object-cover">
+                    <div class="portfolio-overlay">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-white mb-4">Event Highlights</h3>
+                            <button class="btn-primary">
+                                <i class="fas fa-video mr-2"></i>Watch Reel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item h-80 card-hover">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23d8b4fe'/><circle cx='200' cy='150' r='80' fill='%238b5cf6' opacity='0.5'/><text x='200' y='160' text-anchor='middle' font-size='16' fill='%23fff'>Radio Shows</text></svg>" 
+                         alt="Radio Shows" class="w-full h-full object-cover">
+                    <div class="portfolio-overlay">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-white mb-4">Radio Journey</h3>
+                            <button class="btn-primary">
+                                <i class="fas fa-headphones mr-2"></i>Explore
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item h-80 card-hover">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23fce7f3'/><circle cx='200' cy='150' r='80' fill='%23f472b6' opacity='0.5'/><text x='200' y='160' text-anchor='middle' font-size='16' fill='%23fff'>Brand Campaigns</text></svg>" 
+                         alt="Brand Campaigns" class="w-full h-full object-cover">
+                    <div class="portfolio-overlay">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-white mb-4">Brand Campaigns</h3>
+                            <button class="btn-primary">
+                                <i class="fas fa-bullhorn mr-2"></i>View Work
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item h-80 card-hover">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23e9d5ff'/><circle cx='200' cy='150' r='80' fill='%23a855f7' opacity='0.5'/><text x='200' y='160' text-anchor='middle' font-size='16' fill='%23fff'>Training Sessions</text></svg>" 
+                         alt="Training Sessions" class="w-full h-full object-cover">
+                    <div class="portfolio-overlay">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-white mb-4">Training & Workshops</h3>
+                            <button class="btn-primary">
+                                <i class="fas fa-chalkboard-teacher mr-2"></i>Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item h-80 card-hover">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23f3e8ff'/><circle cx='200' cy='150' r='80' fill='%236d28d9' opacity='0.5'/><text x='200' y='160' text-anchor='middle' font-size='16' fill='%23fff'>Social Content</text></svg>" 
+                         alt="Social Media Content" class="w-full h-full object-cover">
+                    <div class="portfolio-overlay">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-white mb-4">Social Media Magic</h3>
+                            <button class="btn-primary">
+                                <i class="fas fa-share-alt mr-2"></i>See Posts
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 glass-effect">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Client Love</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-purple-600">What my amazing clients say about working with me</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card card-hover">
+                    <p class="text-purple-700 mb-4 italic">"Mithra's voice brought our brand story to life in ways we never imagined. Her professionalism and creativity are unmatched!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            S
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-purple-800">Sarah Johnson</h4>
+                            <p class="text-sm text-purple-600">Marketing Director</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card card-hover">
+                    <p class="text-purple-700 mb-4 italic">"Working with Mithra was a game-changer for our event. Her energy and expertise made everything seamless and memorable!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            R
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-purple-800">Rajesh Kumar</h4>
+                            <p class="text-sm text-purple-600">Event Coordinator</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card card-hover">
+                    <p class="text-purple-700 mb-4 italic">"Mithra's radio shows were the highlight of my daily commute. Her voice has the power to connect and inspire!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-400 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            P
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-purple-800">Priya Sharma</h4>
+                            <p class="text-sm text-purple-600">Loyal Listener</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Let's Create Magic Together</h2>
+                <div class="section-divider"></div>
+                <p class="text-xl text-purple-600 max-w-3xl mx-auto">
+                    Ready to bring your project to life? Let's discuss how we can create something extraordinary together.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold gradient-text mb-6">Get In Touch</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center text-white">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-800">Phone</h4>
+                                    <a href="tel:+918056350268" class="text-purple-600 hover:text-pink-600 transition">+91-8056350268</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-800">Email</h4>
+                                    <a href="mailto:rjmithra0294@gmail.com" class="text-purple-600 hover:text-pink-600 transition">rjmithra0294@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-pink-600 to-purple-500 rounded-full flex items-center justify-center text-white">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-800">Location</h4>
+                                    <p class="text-purple-600">Salem and nearby places</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-purple-800 mb-4">Follow My Journey</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://instagram.com/rjmithuhasini" target="_blank" 
+                                   class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition transform">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://youtube.com/c/RJMithra" target="_blank" 
+                                   class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition transform">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" target="_blank" 
+                                   class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition transform">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="glass-effect p-8 rounded-2xl">
+                    <form class="space-y-6" id="contactForm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-semibold text-purple-800 mb-2">Full Name</label>
+                                <input type="text" id="name" name="name" required
+                                       class="w-full px-4 py-3 rounded-xl border-2 border-purple-200 focus:border-pink-500 focus:outline-none transition bg-white/80">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-purple-800 mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" required
+                                       class="w-full px-4 py-3 rounded-xl border-2 border-purple-200 focus:border-pink-500 focus:outline-none transition bg-white/80">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-semibold text-purple-800 mb-2">Service Needed</label>
+                            <select id="service" name="service" required
+                                    class="w-full px-4 py-3 rounded-xl border-2 border-purple-200 focus:border-pink-500 focus:outline-none transition bg-white/80">
+                                <option value="">Select a service</option>
+                                <option value="voice-over">Voice-Over & Dubbing</option>
+                                <option value="event-hosting">Event Hosting & MC</option>
+                                <option value="content-creation">Content Creation</option>
+                                <option value="show-hosting">Show Hosting & VJ</option>
+                                <option value="training">Training & Workshops</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-semibold text-purple-800 mb-2">Project Details</label>
+                            <textarea id="message" name="message" rows="5" required
+                                      placeholder="Tell me about your project requirements, timeline, and vision..."
+                                      class="w-full px-4 py-3 rounded-xl border-2 border-purple-200 focus:border-pink-500 focus:outline-none transition bg-white/80 resize-none"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary w-full py-4 text-lg">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 glass-effect text-center">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold gradient-text mb-4">Mithra R</h3>
+                <p class="text-purple-600 max-w-md mx-auto">
+                    Your voice. Your story. Your success. Let's create something amazing together.
+                </p>
+            </div>
+            
+            <div class="border-t border-purple-200 pt-8">
+                <p class="text-purple-600">
+                    &copy; 2025 Mithra R. All rights reserved. | Designed with 💜 for maximum conversion
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Success animation
+                submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Message Sent!';
+                submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                
+                // Show success message
+                const successDiv = document.createElement('div');
+                successDiv.className = 'mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-xl';
+                successDiv.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Thank you! I\'ll get back to you within 24 hours.';
+                this.appendChild(successDiv);
+                
+                // Reset form after 3 seconds
+                setTimeout(() => {
+                    this.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                    successDiv.remove();
+                }, 3000);
+            }, 2000);
+        });
+
+        // Parallax effect for floating shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.floating-shape');
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.1;
+                shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.02}deg)`;
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.card-hover, .service-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Stats counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stats-counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                const increment = target / 50;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current) + '+';
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + '+';
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats-counter').closest('section');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.md\\:hidden');
+        const navLinks = document.querySelector('.hidden.md\\:flex');
+        
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');
+                navLinks.classList.toggle('flex');
+                navLinks.classList.toggle('flex-col');
+                navLinks.classList.toggle('absolute');
+                navLinks.classList.toggle('top-full');
+                navLinks.classList.toggle('left-0');
+                navLinks.classList.toggle('w-full');
+                navLinks.classList.toggle('bg-white');
+                navLinks.classList.toggle('p-4');
+                navLinks.classList.toggle('shadow-lg');
+            });
+        }
+    </script>
+</body>
+</html>
